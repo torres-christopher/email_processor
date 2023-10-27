@@ -8,7 +8,7 @@ This web application is built with Python and Flask to fetch and display emails 
 | Name                  | Christopher Torres |
 | Country of Origin     | Czech Republic |
 | Project Title         | Email Monitor |
-| Video URL             | [URL of Your Video] |
+| Video URL             | [CS50 Final project - Email monitor (YouTube)](https://youtu.be/3hsM6vQL7C0) |
 | Project Description   | The primary objective of this project is to enhance email management and organization. By providing a web application that allows users to easily sort, categorize, and access their emails by brand and category. This streamlined email management system helps me, a CRM specialist who codes emails daily, to find inspiration from various industries and enhance my own work. |
 
 
