@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Categories
+{% endblock %}
+
+{% block css %}
+<style rel="stylesheet">
+  .card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  }
+</style>
+{% endblock %}
+
+{% block main %}
+
+{# Jumbotron #}
+<div class="p-5 mb-4 bg-light">
+  <div class="container py-3">
+    <h1 class="display-5 fw-bold">Categories</h1>
+    <p class="col-md-8 fs-4">Powering a website for CRM professionals, this Flask-backed project showcases a curated
+      collection of Czech commercial emails for inspiration.</p>
+  </div>
+</div>
+
+{# Categories #}
+<div class="row justify-content-center align-items-center my-3">
+  {% for i in range(counter) %}
+  <div class="row">
+    {% for category_id, name in categories %}
+      <div class="col-sm-2 mb-4">
+        <a class="link-offset-1 link-underline link-underline-opacity-0" href="{{ url_for('brands', category = category_id) }}">
+          <div class="card">
+            <img src="static/categories/{{ category_id }}.png" class="card-img-top img-thumbnail" alt="{{ name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ name }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

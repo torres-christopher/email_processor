@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Status
+{% endblock %}
+
+{% block main %}
+    <div class="table-responsive" action="/index">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Files</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sender, file in repository.items() %}
+                <tr>
+                    <td>{{ sender }}</td>
+                    <td>{{ file }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

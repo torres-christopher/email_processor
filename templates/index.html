@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+
+{# Jumbotron #}
+<div class="p-5 mb-4 bg-light">
+  <div class="container py-5">
+    <h1 class="display-5 fw-bold">Email Monitor</h1>
+    <p class="col-md-8 fs-4">Powering a website for CRM professionals, this Flask-backed project showcases a curated
+      collection of Czech commercial emails for inspiration.</p>
+  </div>
+</div>
+
+{# Latest emails #}
+
+<div class="row justify-content-center align-items-center my-3">
+  <div class="row my-3">
+    <div class="col">
+      <p class="h2 text-center">Latest emails</p>
+    </div>
+  </div>
+  <div class="row overflow-auto">
+    {% for email_id, brand_name, subject, image_path in emails %}
+    <div class="col-sm-3">
+      <a class="link-offset-1 link-underline link-underline-opacity-0" href="{{ url_for('preview', email_id = email_id) }}">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ brand_name }}</h5>
+            <p class="card-text">{{ subject }}</p>
+          </div>
+          <img src="{{ image_path }}" class="card-img-top" alt="{{ brand_name }}">
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+</div>
+
+<hr class="hr my-5" />
+
+{# Latest brands #}
+<div class="row justify-content-center align-items-center my-3">
+  <div class="row my-3">
+    <div class="col">
+      <p class="h2 text-center">Latest brands</p>
+    </div>
+  </div>
+  <div class="row">
+
+  {% for brand_id, brand_name in brands %}
+  <div class="col-sm-2">
+    <a class="link-offset-1 link-underline link-underline-opacity-0" href="{{ url_for('emails', search = brand_id) }}">
+      <div class="card">
+        <img src="static/brands/{{ brand_id }}.png" class="card-img-top img-thumbnail" alt="{{ brand_name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ brand_name }}</h5>
+        </div>
+      </div>
+    </a>
+  </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

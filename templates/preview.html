@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Preview
+{% endblock %}
+
+{% block main %}
+
+{# Preview #}
+<div id="emailframe" class="mb-5">
+  <iframe class="w-100" id="emailcell" src="{{ url_for('getFile', email_id = email_id) }}"></iframe>
+</body>
+</div>
+{% endblock %}
+
+
+{% block javascript %}
+<script>
+  // Selecting the iframe element
+  const cell = document.getElementById("emailcell");
+
+  // Adjusting the iframe height onload event
+  cell.onload = function()
+  // function execute while load the iframe
+  {
+    // set the height of the iframe as
+    // the height of the iframe content
+    cell.style.height = cell.contentWindow.document.body.scrollHeight + 'px';
+
+    // set the width of the iframe as the
+    // width of the iframe content
+    cell.style.width = cell.contentWindow.document.body.scrollWidth + 'px';
+  }
+</script>
+{% endblock %}

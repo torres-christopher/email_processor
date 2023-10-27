@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Emails
+{% endblock %}
+
+{% block main %}
+
+{# Jumbotron #}
+<div class="p-5 mb-4 bg-light">
+    <div class="container py-3">
+        <h1 class="display-5 fw-bold">Brand/Category name</h1>
+    </div>
+</div>
+
+{# Email preview #}
+<div class="row justify-content-center align-items-center my-3">
+    {% for i in range(counter) %}
+    <div class="row">
+      {% for email_id, subject, date, image_path in emails %}
+        <div class="col-sm-2 mb-4">
+            <a class="link-offset-1 link-underline link-underline-opacity-0" href="{{ url_for('preview', email_id = email_id) }}">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ date }}
+                        </h6>
+                        <p class="card-text">{{ subject }}</p>
+                    </div>
+                    <img src="{{ image_path }}" class="card-img-top"
+                        alt="{{ subject }}">
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
